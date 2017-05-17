@@ -1,11 +1,11 @@
-import {GraphQLObjectType} from 'graphql';
-import coin from './models/Coin/coinQuery';
+import { GraphQLObjectType } from 'graphql'
+import coin from './models/Coin/coinQuery'
 
 const rootFields = Object.assign({},
-	coin
-);
+    coin,
+)
 
 export default new GraphQLObjectType({
-	name: 'RootQuery',
-	fields: () => rootFields
-});
+    name: 'RootQuery',
+    fields: () => rootFields,
+})
