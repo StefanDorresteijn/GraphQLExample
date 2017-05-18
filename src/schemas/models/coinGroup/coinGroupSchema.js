@@ -11,8 +11,8 @@ import coinSchema from '../coin/coinSchema'
 // endregion
 
 /**
- * Our coinSchema defines our schema for GraphQL
- * The attributeFields method uses the coinModel we created to create a graphQL schema for us
+ * Our coinGroupSchema defines our schema for GraphQL
+ * The attributeFields method uses the coinGroupModel we created to create a graphQL schema for us
  * */
 const coinGroupSchema = new GraphQLObjectType({
     name: 'coinGroup',

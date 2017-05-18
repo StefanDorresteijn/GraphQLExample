@@ -18,9 +18,9 @@ import coinGroupModel from './coinGroupModel'
 
 /**
  * Here our query for GraphQL comes together.
- * We define the type as a list of coinSchemas
+ * We define the type as a list of coinGroupSchemas
  * We automatically generate the arguments we can use through sequelize-graphql
- * We use the resolver to automatically resolve using our coinModel
+ * We use the resolver to automatically resolve using our coinGroupModel
  */
 export default {
     coinGroups: {
