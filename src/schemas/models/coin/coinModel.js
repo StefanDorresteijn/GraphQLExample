@@ -5,6 +5,7 @@
 import Sequelize from 'sequelize'
 import db from '../../../db/db'
 
+/** Here we define our model */
 const coinModel = db.define('coin', {
     name: Sequelize.STRING,
     symbol: Sequelize.STRING,
