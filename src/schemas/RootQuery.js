@@ -1,5 +1,6 @@
 import { GraphQLObjectType } from 'graphql'
 import coin from './models/coin/coinQuery'
+import coinGroup from './models/coinGroup/coinGroupQuery'
 
 /**
  * Our rootFields simply pulls all our queries together into one object
@@ -7,6 +8,7 @@ import coin from './models/coin/coinQuery'
  */
 const rootFields = Object.assign({},
     coin,
+    coinGroup,
 )
 
 /**
