@@ -1,5 +1,5 @@
 import { GraphQLObjectType } from 'graphql'
-import coin from './models/Coin/coinQuery'
+import coin from './models/coin/coinQuery'
 
 const rootFields = Object.assign({},
     coin,
