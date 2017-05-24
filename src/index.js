@@ -36,7 +36,6 @@ app.use(passport.session())
 /**
  * This is the login route, using passportJS
  */
-//app.use(bodyParser.urlencoded({ extended: true }))
 app.use(/\/((?!graphql).)*/, bodyParser.urlencoded({ extended: true }));
 app.use(/\/((?!graphql).)*/, bodyParser.json());
 app.post('/signup', (req, res, next) => {
@@ -81,32 +80,32 @@ app.post('/login', (req, res, next) => {
 })
 
 
-// app.use('/graphql', expressJwt({
-//     secret: jwtOptions.secretOrKey,
-//     credentialsRequired: false,
-// }))
+ app.use('/graphql', expressJwt({
+     secret: jwtOptions.secretOrKey,
+     credentialsRequired: false,
+ }))
 
-// app.use('/graphql', (req, res, done) => {
-//     if (!req.user) {
-//         return done()
-//     }
-//     return User.findOne({ where: { id: req.user.id } }).then((user) => {
-//         req.context = {
-//             user,
-//         }
-//         done()
-//     })
-// })
+ app.use('/graphql', (req, res, done) => {
+     if (!req.user) {
+         return done()
+     }
+     return User.findOne({ where: { id: req.user.id } }).then((user) => {
+         req.context = {
+             user,
+         }
+         done()
+     })
+ })
 
 /**
  * Here we define our GraphQL route and pass it the rootschema
  */
-// app.use('/graphql', graphqlHTTP(req => ({
-//     schema: RootSchema,
-//     //context: req.context,
-//     graphiql: true,
-// }),
-// ))
+ app.use('/graphql', graphqlHTTP(req => ({
+     schema: RootSchema,
+     //context: req.context,
+     graphiql: true,
+ }),
+ ))
 
 app.use('/graphql', graphqlHTTP({
     schema: RootSchema,
