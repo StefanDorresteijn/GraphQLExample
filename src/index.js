@@ -102,7 +102,7 @@ app.post('/login', (req, res, next) => {
  */
  app.use('/graphql', graphqlHTTP(req => ({
      schema: RootSchema,
-     //context: req.context,
+     context: req.context,
      graphiql: true,
  }),
  ))
