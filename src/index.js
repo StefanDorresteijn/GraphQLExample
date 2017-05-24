@@ -34,10 +34,16 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 /**
- * This is the signup route, using passportJS
+ * GraphQL has some issues working when we use Bodyparser urlencoded
+ * So we only use it for non-graphql routes
  */
+
 app.use(/\/((?!graphql).)*/, bodyParser.urlencoded({ extended: true }))
 app.use(/\/((?!graphql).)*/, bodyParser.json())
+
+/**
+ * This is the signup route, using passportJS
+ */
 app.post('/signup', (req, res, next) => {
     passport.authenticate('local-signup', (err, user, info) => {
         if (err) {
