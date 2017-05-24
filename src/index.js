@@ -34,7 +34,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 /**
- * This is the login route, using passportJS
+ * This is the signup route, using passportJS
  */
 app.use(/\/((?!graphql).)*/, bodyParser.urlencoded({ extended: true }))
 app.use(/\/((?!graphql).)*/, bodyParser.json())
@@ -56,6 +56,10 @@ app.post('/signup', (req, res, next) => {
     })(req, res, next)
 })
 
+/**
+ * This is the login route.
+ * We use this to authenticate the user and generate a token
+ */
 app.post('/login', (req, res, next) => {
     passport.authenticate('local-signin', (err, user, info) => {
         if (err) {
@@ -79,12 +83,17 @@ app.post('/login', (req, res, next) => {
     })(req, res, next)
 })
 
-
+/**
+ * This is where we configure JWT for GraphQL
+ */
 app.use('/graphql', expressJwt({
     secret: jwtOptions.secretOrKey,
     credentialsRequired: false,
 }))
 
+/**
+ * This is where we authenticate the user and put his object in the context
+ */
 app.use('/graphql', (req, res, done) => {
     if (!req.user) {
         return done()
@@ -104,15 +113,7 @@ app.use('/graphql', graphqlHTTP(req => ({
     schema: RootSchema,
     context: req.context,
     graphiql: true,
-}),
- ))
-
-app.use('/graphql', graphqlHTTP({
-    schema: RootSchema,
-    graphiql: true,
-}),
-)
-
+})))
 
 /**
  * We start the server, authenticate the DB and console.log to let ourselves know it's all good
