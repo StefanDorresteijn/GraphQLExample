@@ -6,6 +6,18 @@ pipeline:
     username: stefandorresteijntest
     password: testaccount123
 
+  ecs:
+    image: peloton/drone-ecs
+    service: staging-cluster
+    region: eu-central-1
+    family: ecs-test-deploy
+    image_name: stefandorresteijn/graphqlexample
+    image_tag: latest
+    port_mappings:
+      - 80 8080
+    memory: 128
+    secrets: [ access_key, secret_key ]
+
   slack:
     image: plugins/slack
     webhook: https://hooks.slack.com/services/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
