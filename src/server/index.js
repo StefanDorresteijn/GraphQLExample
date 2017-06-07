@@ -26,8 +26,8 @@ setupRoutes(app)
 /**
  * We start the server, authenticate the DB and console.log to let ourselves know it's all good
  */
-app.listen(3000, () => {
-    console.log('Listening on port 3000. Have fun!')
+app.listen(8080, () => {
+    console.log('Listening on port 8080. Have fun!')
     db
         .authenticate()
         .then(() => {

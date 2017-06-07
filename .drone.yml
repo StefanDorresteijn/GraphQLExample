@@ -1,9 +1,10 @@
 pipeline:
-  build:
-    image: node:6
-    commands:
-     - npm install
-     - npm run build
+  docker:
+    image: plugins/docker
+    repo: stefandorresteijn/graphqlexample/
+    tags: latest
+    username: stefandorresteijntest
+    password: testaccount123
 
   slack:
     image: plugins/slack
