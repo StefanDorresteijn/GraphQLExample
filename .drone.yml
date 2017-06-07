@@ -9,6 +9,7 @@ pipeline:
   ecs:
     image: peloton/drone-ecs
     service: staging-cluster
+    cluster: staging-cluster
     region: eu-central-1
     family: ecs-test-deploy
     image_name: stefandorresteijn/graphqlexample
