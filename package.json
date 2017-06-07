@@ -8,7 +8,7 @@
     "transpile-es2015": "babel src -d build",
     "start": "babel src -d build && node build",
     "build": "babel src -d build",
-    "production": "node index.js"
+    "production": "node build"
   },
   "author": "",
   "license": "ISC",
