@@ -3,7 +3,7 @@ pipeline:
     image: node:6
     commands:
      - npm install
-     - npm build
+     - npm run
 
   slack:
     image: plugins/slack
