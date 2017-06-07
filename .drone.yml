@@ -16,7 +16,7 @@ pipeline:
     port_mappings:
       - 80 8080
     memory: 128
-    secrets: [ access_key, secret_key ]
+    secrets: [ ecs_access_key, ecs_secret_key ]
 
   slack:
     image: plugins/slack
