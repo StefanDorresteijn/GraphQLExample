@@ -3,8 +3,7 @@ pipeline:
     image: plugins/docker
     repo: stefandorresteijn/graphqlexample
     tags: latest
-    username: stefandorresteijntest
-    password: testaccount123
+    secrets: [ username, password ]
 
   ecs:
     image: peloton/drone-ecs
