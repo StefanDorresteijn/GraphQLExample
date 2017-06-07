@@ -6,7 +6,7 @@ pipeline:
     username: drone
     template: >
       {{#success build.status}}
-        build {{build.number}} succeeded. Good job.
+        Build #{{build.number}} succeeded. Good job.
       {{else}}
-        build {{build.number}} failed. Fix me please.
+        Build #{{build.number}} failed. Fix me please.
       {{/success}}
