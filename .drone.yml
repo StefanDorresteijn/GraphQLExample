@@ -4,3 +4,9 @@ pipeline:
     webhook: https://hooks.slack.com/services/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
     channel: esports-core-dev
     username: drone
+    template: >
+      {{#success build.status}}
+        build {{build.number}} succeeded. Good job.
+      {{else}}
+        build {{build.number}} failed. Fix me please.
+      {{/success}}
