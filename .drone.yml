@@ -1,7 +1,7 @@
 pipeline:
   docker:
     image: plugins/docker
-    repo: stefandorresteijn/graphqlexample/
+    repo: stefandorresteijn/graphqlexample
     tags: latest
     username: stefandorresteijntest
     password: testaccount123
