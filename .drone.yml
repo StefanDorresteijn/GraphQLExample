@@ -15,7 +15,7 @@ pipeline:
     image_tag: latest
     port_mappings:
       - 80 8080
-    memory: 256
+    memory: 128
     secrets: [ ecs_access_key, ecs_secret_key ]
     deployment_configuration: 50 200
     desired_count: 1
