@@ -37,7 +37,7 @@ pipeline:
     desired_count: 1
     cpu: 1024
     environment_variables:
-      - DB_URL=$DB_URL
+      - DB_URL=${DB_URL}
 
   notify_finished:
     image: plugins/slack
