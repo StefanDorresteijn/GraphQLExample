@@ -11,7 +11,7 @@ pipeline:
     image: plugins/docker
     repo: stefandorresteijn/graphqlexample
     tags: latest
-    secrets: [ docker_username, docker_password, db_url ]
+    secrets: [ docker_username, docker_password, DB_URL ]
 
   notify_docker_built:
       image: plugins/slack
@@ -32,7 +32,7 @@ pipeline:
     port_mappings:
       - 80 8080
     memory: 128
-    secrets: [ ecs_access_key, ecs_secret_key, db_url ]
+    secrets: [ ecs_access_key, ecs_secret_key, DB_URL ]
     deployment_configuration: 50 200
     desired_count: 1
     cpu: 1024
