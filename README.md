@@ -1,0 +1,2 @@
+#GraphQL Example Project [![Build Status](http://52.29.96.48/api/badges/StefanDorresteijn/GraphQLExample/status.svg)](http://52.29.96.48/StefanDorresteijn/GraphQLExample)
+_This project is an example project and should **never** be used in production_
