@@ -1,9 +1,25 @@
 pipeline:
+  notify_start:
+      image: plugins/slack
+      webhook: https://hooks.slack.com/services/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
+      channel: esports-core-dev
+      username: drone
+      template: >
+        Build #{{build.number}} starting!
+
   docker:
     image: plugins/docker
     repo: stefandorresteijn/graphqlexample
     tags: latest
     secrets: [ docker_username, docker_password ]
+
+  notify_docker_built:
+      image: plugins/slack
+      webhook: https://hooks.slack.com/services/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
+      channel: esports-core-dev
+      username: drone
+      template: >
+        Build #{{build.number}} has built and pushed docker image!
 
   ecs:
     image: peloton/drone-ecs
@@ -21,7 +37,7 @@ pipeline:
     desired_count: 1
     cpu: 1024
 
-  slack:
+  notify_finished:
     image: plugins/slack
     webhook: https://hooks.slack.com/services/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
     channel: esports-core-dev
