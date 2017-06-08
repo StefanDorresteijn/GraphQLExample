@@ -7,11 +7,12 @@ pipeline:
 
   ecs:
     image: peloton/drone-ecs
+    service: service-test
     cluster: staging-cluster
     region: eu-central-1
     family: ecs-test-deploy
     image_name: stefandorresteijn/graphqlexample
-    image_tag: latest
+    tag: latest
     port_mappings:
       - 80 8080
     memory: 128
