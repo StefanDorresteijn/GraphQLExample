@@ -11,7 +11,7 @@ pipeline:
     cluster: staging-cluster
     region: eu-central-1
     family: ecs-test-deploy
-    image_name: stefandorresteijn/graphqlexample
+    docker_image: stefandorresteijn/graphqlexample
     tag: latest
     port_mappings:
       - 80 8080
