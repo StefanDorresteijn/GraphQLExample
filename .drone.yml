@@ -14,8 +14,11 @@ pipeline:
     secrets: [ docker_username, docker_password, DB_URL ]
     commands:
       - echo "DB_URL=$DB_URL" > .env
-      - docker build -t stefandorresteijn/graphqlexample .
-      - docker push
+      - /usr/local/bin/dockerd -g /var/lib/docker
+      - /usr/local/bin/docker build --rm=true -f Dockerfile -t stefandorresteijn/graphqlexample . --pull=true
+      - /usr/local/bin/docker push stefandorresteijn/graphqlexample:latest
+      - /usr/local/bin/docker rmi stefandorresteijn/graphqlexample
+      - /usr/local/bin/docker system prune -f
 
   notify_docker_built:
       image: plugins/slack
