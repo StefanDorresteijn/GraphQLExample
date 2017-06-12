@@ -12,13 +12,8 @@ pipeline:
     repo: stefandorresteijn/graphqlexample
     tags: latest
     secrets: [ docker_username, docker_password, DB_URL ]
-    commands:
-      - echo "DB_URL=$DB_URL" > .env
-      - /usr/local/bin/dockerd -g /var/lib/docker
-      - /usr/local/bin/docker build --rm=true -f Dockerfile -t stefandorresteijn/graphqlexample . --pull=true
-      - /usr/local/bin/docker push stefandorresteijn/graphqlexample:latest
-      - /usr/local/bin/docker rmi stefandorresteijn/graphqlexample
-      - /usr/local/bin/docker system prune -f
+    environment:
+      - DB_URL=$DB_URL
 
   notify_docker_built:
       image: plugins/slack
@@ -49,6 +44,8 @@ pipeline:
     webhook: https://hooks.slack.com/services/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
     channel: esports-core-dev
     username: drone
+    when:
+      status: [ success, failure ]
     template: >
       {{#success build.status}}
         Build #{{build.number}} succeeded. Good job.
