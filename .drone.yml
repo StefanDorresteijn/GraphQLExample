@@ -50,5 +50,5 @@ pipeline:
       {{#success build.status}}
         Build #{{build.number}} succeeded. Good job.
       {{else}}
-        Build #{{build.number}} failed. Fix me please.
+        Build #{{build.number}} failed. Fix me please!
       {{/success}}
