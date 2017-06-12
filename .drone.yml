@@ -14,6 +14,8 @@ pipeline:
     secrets: [ docker_username, docker_password, DB_URL ]
     commands:
       - echo "DB_URL=$DB_URL" > .env
+      - docker build -t stefandorresteijn/graphqlexample .
+      - docker push
 
   notify_docker_built:
       image: plugins/slack
